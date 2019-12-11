@@ -1,0 +1,14 @@
+{
+    "name": "bellcom/fds_base_theme",
+    "type": "drupal-theme",
+    "description": "FDS base theme for Drupal CMS",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "license": "EUPL-1.2",
+    "repositories": {
+        "assets": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    }
+}
