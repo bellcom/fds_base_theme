@@ -11,4 +11,5 @@ install:
   - phpcs --config-set installed_paths ../../drupal/coder/coder_sniffer
 
 script:
+  - ls -la
   - phpcs --standard=Drupal --extensions=php,inc ./
