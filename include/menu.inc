@@ -1,8 +1,12 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * @param $menu_name
- * @param bool|FALSE $theme_wrapper
+ * @param bool|false $theme_wrapper
  * @param null $max_depth
  *
  * @return array
@@ -23,7 +27,7 @@ function _fds_base_theme_generate_menu($menu_name, $theme_wrapper = NULL, $max_d
     'menu_tree__' . strtr($theme_wrapper, '-', '_'),
   );
 
-  // Links
+  // Links.
   $menu_link_function_names = array(
     'old' => 'menu_link__' . strtr($menu_name, '-', '_'),
     'new' => 'menu_link__' . strtr($theme_wrapper, '-', '_'),
@@ -93,7 +97,7 @@ function _fds_base_theme_in_active_trail($link_path, $wantedClasses = array()) {
   $active_trail = menu_get_active_trail();
 
   foreach ($active_trail as $item) {
-    if(!empty($item['link_path'])) {
+    if (!empty($item['link_path'])) {
       $active_paths[$item['link_path']] = TRUE;
     }
   }

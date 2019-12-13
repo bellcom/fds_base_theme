@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Collect and assemble theme settings.
  *
  * @return array

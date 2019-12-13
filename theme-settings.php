@@ -1,11 +1,15 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function fds_base_theme_form_system_theme_settings_alter(&$form, $form_state, $form_id = NULL) {
 
-  // Vertical tabs
+  // Vertical tabs.
   $form['options'] = [
     '#type' => 'vertical_tabs',
     '#default_tab' => 'main',
@@ -18,9 +22,9 @@ function fds_base_theme_form_system_theme_settings_alter(&$form, $form_state, $f
   |--------------------------------------------------------------------------
   | Header.
   |--------------------------------------------------------------------------
-  */
+   */
 
-  // Fieldset
+  // Fieldset.
   $form['options']['header'] = [
     '#type' => 'fieldset',
     '#title' => t('Header'),

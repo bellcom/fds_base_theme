@@ -1,6 +1,10 @@
 <?php
 
 /**
+ * @file
+ */
+
+/**
  * Retrieves an element's "attributes" array.
  *
  * @param array $element
@@ -154,7 +158,6 @@ function bootstrap_get_theme_info($theme_key = NULL, $key = NULL, $base_themes =
   return FALSE;
 }
 
-
 /**
  * Merges the cached element information into the runtime array.
  *
@@ -206,4 +209,3 @@ function _bootstrap_element_info_array_merge(array $info, array $cached) {
   // Return the altered element info array.
   return $info;
 }
-

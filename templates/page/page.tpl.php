@@ -1,3 +1,9 @@
+<?php
+
+/**
+ * @file
+ */
+?>
 <!-- Begin - header -->
 <header class="header" role="banner">
   <a class="skipnav" href="#main-content">Gå til sidens indhold</a>
@@ -160,7 +166,8 @@
     <?php if (!empty($page['sidebar_left']) || !empty($breadcrumb)): ?>
       <!-- Begin - sidebar - left -->
       <aside class="col-12 col-lg-3 sidebar-col">
-        <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
+        <?php if (!empty($breadcrumb)): print $breadcrumb;
+        endif; ?>
 
         <?php if (!empty($page['sidebar_left'])): ?>
           <?php print render($page['sidebar_left']); ?>

@@ -1,9 +1,13 @@
 <?php
-include( dirname(__FILE__) . '/include/common.inc');
-include( dirname(__FILE__) . '/include/helpers.inc');
-include( dirname(__FILE__) . '/include/menu.inc');
-include( dirname(__FILE__) . '/include/settings.inc');
 
+/**
+ * @file
+ */
+
+include dirname(__FILE__) . '/include/common.inc';
+include dirname(__FILE__) . '/include/helpers.inc';
+include dirname(__FILE__) . '/include/menu.inc';
+include dirname(__FILE__) . '/include/settings.inc';
 
 /**
  * Implements hook_element_info_alter().
@@ -142,8 +146,7 @@ function fds_base_theme_pre_render($element) {
   }
 
   // Add smart descriptions to the element, if necessary.
-  //bootstrap_element_smart_description($element);
-
+  // bootstrap_element_smart_description($element);
   // Return the modified element.
   return $element;
 }
@@ -175,6 +178,7 @@ function fds_base_theme_container(array $variables) {
 
   return '<div' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</div>';
 }
+
 /**
  * Returns HTML for a form element.
  *
@@ -439,11 +443,10 @@ function fds_base_theme_form_element_label(array &$variables) {
 /**
  * Implements hook_css_alter().
  */
-
 function fds_base_theme_css_alter(&$css) {
 
   // Remove default implementation of alerts.
-  unset($css[drupal_get_path('module','system').'/system.messages.css']);
+  unset($css[drupal_get_path('module', 'system') . '/system.messages.css']);
 }
 
 /**
@@ -452,7 +455,7 @@ function fds_base_theme_css_alter(&$css) {
 function fds_base_theme_preprocess_html(&$variables) {
   $theme_path = path_to_theme();
 
-  // Add javascript files
+  // Add javascript files.
   drupal_add_js($theme_path . '/dist/js/dkfds.js',
     [
       'type' => 'file',
@@ -461,7 +464,7 @@ function fds_base_theme_preprocess_html(&$variables) {
     ]);
 }
 
-/*
+/**
  * Implements theme_preprocess_page().
  */
 function fds_base_theme_preprocess_page(&$variables) {
@@ -483,7 +486,7 @@ function fds_base_theme_preprocess_page(&$variables) {
     $variables['content_column_class'] = ' class="col-12"';
   }
 
-  // Theme settings
+  // Theme settings.
   $variables['theme_settings'] = _fds_base_theme_collect_theme_settings();
 }
 
@@ -543,7 +546,7 @@ function fds_base_theme_status_messages(array $variables) {
 
     // Heading.
     $output .= '<p class="alert-heading pr-7">';
-    $output .=   filter_xss_admin(reset($messages));
+    $output .= filter_xss_admin(reset($messages));
     $output .= '</p>';
 
     // Close button.
@@ -568,6 +571,9 @@ function fds_base_theme_status_messages(array $variables) {
   return $output;
 }
 
+/**
+ * Implements hook_preprocess_region().
+ */
 function fds_base_theme_preprocess_region(array &$variables) {
   $region = $variables['region'];
   $classes = &$variables['classes_array'];
@@ -605,11 +611,10 @@ function fds_base_theme_menu_link__header_primary(array $variables) {
   // @TODO - current level
   // --- https://drupal.stackexchange.com/questions/32873/how-to-theme-only-top-level-menu
   // If we are on second level or below, we need to add other classes to the list items.
-
   // The navbar.
   if ($element['#original_link']['depth'] > 1) {
 
-    // Has a dropdown menu
+    // Has a dropdown menu.
     if ($element['#below']) {
 
       if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
@@ -651,12 +656,12 @@ function fds_base_theme_menu_link__header_primary(array $variables) {
         // Add our own wrapper.
         unset($element['#below']['#theme_wrappers']);
         $sub_menu = '<div class="overflow-menu">';
-        $sub_menu .=   '<button class="' . $button_class . ' button-overflow-menu js-dropdown js-dropdown--responsive-collapse" data-js-target="#headeroverflow_' . $element['#original_link']['mlid'] . '" aria-haspopup="true" aria-expanded="false">';
-        $sub_menu .=     '<span>' . $element['#title'] . '</span>';
-        $sub_menu .=   '</button>';
-        $sub_menu .=   '<div class="overflow-menu-inner" id="headeroverflow_' . $element['#original_link']['mlid'] . '" aria-hidden="true">';
-        $sub_menu .=     '<ul class="overflow-list">' . drupal_render($element['#below']) . '</ul>';
-        $sub_menu .=   '</div>';
+        $sub_menu .= '<button class="' . $button_class . ' button-overflow-menu js-dropdown js-dropdown--responsive-collapse" data-js-target="#headeroverflow_' . $element['#original_link']['mlid'] . '" aria-haspopup="true" aria-expanded="false">';
+        $sub_menu .= '<span>' . $element['#title'] . '</span>';
+        $sub_menu .= '</button>';
+        $sub_menu .= '<div class="overflow-menu-inner" id="headeroverflow_' . $element['#original_link']['mlid'] . '" aria-hidden="true">';
+        $sub_menu .= '<ul class="overflow-list">' . drupal_render($element['#below']) . '</ul>';
+        $sub_menu .= '</div>';
         $sub_menu .= '</div>';
 
         // Generate as dropdown.
@@ -731,7 +736,7 @@ function fds_base_theme_menu_tree(array &$variables) {
   return '<nav><ul class="sidenav-list">' . $variables['tree'] . '</ul></nav>';
 }
 
-/*
+/**
  * Implements theme_menu_link().
  */
 function fds_base_theme_menu_link(array $variables) {
@@ -751,7 +756,7 @@ function fds_base_theme_menu_link(array $variables) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
 
-      // Submenu classes
+      // Submenu classes.
       $sub_menu = ' <ul class="sidenav-sub_list">' . drupal_render($element['#below']) . '</ul>';
     }
   }
@@ -769,7 +774,7 @@ function fds_base_theme_menu_link(array $variables) {
   }
 
   $options = array();
-  $options['html'] = true;
+  $options['html'] = TRUE;
   $options['attributes']['class'] = array();
 
   $output = l($link_text, $element['#href'], $options);
