@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Page theme template file.
  */
 ?>
 <!-- Begin - header -->
