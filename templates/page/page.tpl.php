@@ -8,17 +8,19 @@
 
       <!-- Begin - logo -->
       <?php if ($logo): ?>
-        <a href="javascript:void(0);" class="alert-leave2" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <a class="alert-leave2" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
-      <?php endif; ?>
-
-      <?php if (!empty($site_name)): ?>
-        <a href="javascript:void(0);" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+      <?php elseif (!empty($site_name)): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <span class="alert-leave2"><?php print $site_name; ?></span>
         </a>
       <?php endif; ?>
       <!-- End - logo -->
+
+      <?php if (!empty($page['header'])): ?>
+        <?php print render($page['header']); ?>
+      <?php endif; ?>
 
       <!-- Begin - mobile -->
       <button
@@ -26,17 +28,13 @@
         aria-haspopup="menu" title="<?php print t('Open mobile navigation'); ?>"><?php print t('Navigation'); ?></button>
       <!-- End - mobile -->
 
-      <!-- Begin - secondary navigation -->
-      <div class="portal-info">
-        <p class="user"><b class="username">Lone hansen</b> </p>
-
-        <a href="#"
-           class="button button-secondary alert-leave d-print-none"
-           role="button">
-          Log af
-        </a>
-      </div>
-      <!-- End - secondary navigation -->
+      <!-- Begin - header_info -->
+      <?php if (!empty($page['header_info'])): ?>
+        <div class="portal-info header-info">
+          <?php print render($page['header_info']); ?>
+        </div>
+      <?php endif; ?>
+      <!-- End - header_info -->
 
     </div>
   </div>
@@ -147,6 +145,11 @@
   <?php endif; ?>
   <!-- End - navigation -->
 
+  <!-- Begin - help region -->
+  <?php if (!empty($page['help'])): ?>
+    <?php print render($page['help']); ?>
+  <?php endif; ?>
+  <!-- End - help region -->
 </header>
 <!-- End - header -->
 
@@ -154,14 +157,13 @@
 <!-- End - content -->
 <div class="container page-container">
   <div class="row">
-
-    <?php if (!empty($page['content__sidebar_left']) || !empty($breadcrumb)): ?>
+    <?php if (!empty($page['sidebar_left']) || !empty($breadcrumb)): ?>
       <!-- Begin - sidebar - left -->
       <aside class="col-12 col-lg-3 sidebar-col">
         <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
 
-        <?php if (!empty($page['content__sidebar_left'])): ?>
-          <?php print render($page['content__sidebar_left']); ?>
+        <?php if (!empty($page['sidebar_left'])): ?>
+          <?php print render($page['sidebar_left']); ?>
         <?php endif; ?>
       </aside>
       <!-- End - sidebar - left -->
@@ -180,17 +182,17 @@
         <?php print render($page['help']); ?>
       <?php endif; ?>
 
-      <?php if (!empty($page['content__center'])): ?>
-        <?php print render($page['content__center']); ?>
+      <?php if (!empty($page['content'])): ?>
+        <?php print render($page['content']); ?>
       <?php endif; ?>
 
     </main>
     <!-- End - content -->
 
-    <?php if (!empty($page['content__sidebar_right'])): ?>
+    <?php if (!empty($page['sidebar_right'])): ?>
       <!-- Begin - sidebar - right -->
       <aside class="col-12 col-lg-3 sidebar-col">
-        <?php print render($page['content__sidebar_right']); ?>
+        <?php print render($page['sidebar_right']); ?>
       </aside>
       <!-- End - sidebar - right -->
     <?php endif; ?>
@@ -198,19 +200,19 @@
   </div>
 </div>
 
-<?php if (!empty($page['footer__row_1']) || !empty($page['footer__column_1']) || !empty($page['footer__column_2']) || !empty($page['footer__column_3']) || !empty($page['footer__row_2'])): ?>
+<?php if (!empty($page['footer']) || !empty($page['footer__column_1']) || !empty($page['footer__column_2']) || !empty($page['footer__column_3']) || !empty($page['footer__row_2'])): ?>
   <!-- Begin - footer -->
   <footer>
     <div class="footer">
       <div class="container">
 
-        <?php if (!empty($page['footer__row_1'])): ?>
+        <?php if (!empty($page['footer'])): ?>
           <!-- Begin - row 1 -->
           <div class="row">
             <div class="col-12 footer-col">
               <section>
                 <div class="align-text-left">
-                  <?php print render($page['footer__row_1']); ?>
+                  <?php print render($page['footer']); ?>
                 </div>
               </section>
             </div>
