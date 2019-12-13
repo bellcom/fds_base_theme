@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Theme template.php file.
  */
 
 include dirname(__FILE__) . '/include/common.inc';
@@ -610,8 +611,8 @@ function fds_base_theme_menu_link__header_primary(array $variables) {
 
   // @TODO - current level
   // --- https://drupal.stackexchange.com/questions/32873/how-to-theme-only-top-level-menu
-  // If we are on second level or below, we need to add other classes to the list items.
-  // The navbar.
+  // If we are on second level or below, we need to add other classes to
+  // the list items. The navbar.
   if ($element['#original_link']['depth'] > 1) {
 
     // Has a dropdown menu.
@@ -645,7 +646,8 @@ function fds_base_theme_menu_link__header_primary(array $variables) {
       elseif ((!empty($element['#original_link']['depth']))) {
         $generate_link = FALSE;
 
-        // If this item is active and/or in the active trail, add necessary classes.
+        // If this item is active and/or in the active trail,
+        // add necessary classes.
         $wantedClasses = array(
           'active' => '',
           'trail' => 'current',

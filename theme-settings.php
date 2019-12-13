@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Theme settings functionality.
  */
 
 /**
@@ -10,13 +11,13 @@
 function fds_base_theme_form_system_theme_settings_alter(&$form, $form_state, $form_id = NULL) {
 
   // Vertical tabs.
-  $form['options'] = [
+  $form['options'] = array(
     '#type' => 'vertical_tabs',
     '#default_tab' => 'main',
     '#weight' => '-20',
     '#prefix' => '<h2><small>' . t('FDS settings') . '</small></h2>',
     '#title' => t('FDS settings'),
-  ];
+  );
 
   /*
   |--------------------------------------------------------------------------

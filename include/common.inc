@@ -2,6 +2,7 @@
 
 /**
  * @file
+ * Theme common functionality.
  */
 
 /**

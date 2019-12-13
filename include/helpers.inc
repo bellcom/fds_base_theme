@@ -2,10 +2,12 @@
 
 /**
  * @file
+ * Theme helpers functionality.
  */
 
 /**
- * Seperated dates
+ * Seperated dates.
+ *
  * Heavily inspired by drupals format_date() function.
  */
 function _fds_base_theme_seperated_dates($timestamp) {
@@ -42,13 +44,15 @@ function _fds_base_theme_seperated_dates($timestamp) {
   $seperated_dates = array(
     'day' => array(
       'integer' => date_format($date_time, 'd'),
-      'short' => t(date_format($date_time, 'D')),
-      'full' => t(date_format($date_time, 'l')),
+      // @TODO Refactor to array that support localization.
+      'short' => date_format($date_time, 'D'),
+      'full' => date_format($date_time, 'l'),
     ),
     'month' => array(
       'integer' => date_format($date_time, 'm'),
-      'short' => t(date_format($date_time, 'M')),
-      'full' => t(date_format($date_time, 'F')),
+      // @TODO Refactor to array that support localization.
+      'short' => date_format($date_time, 'M'),
+      'full' => date_format($date_time, 'F'),
     ),
     'year' => array(
       'short' => date_format($date_time, 'y'),
@@ -90,7 +94,7 @@ function in_array_recursive($needle, $haystack, $strict = FALSE) {
 }
 
 /**
- *
+ * Generates assets paths.
  */
 function _generate_asset_paths() {
   $current_theme = variable_get('theme_default', 'none');

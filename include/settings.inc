@@ -2,12 +2,14 @@
 
 /**
  * @file
+ * Settings functionality.
  */
 
 /**
  * Collect and assemble theme settings.
  *
  * @return array
+ *   Settings array.
  */
 function _fds_base_theme_collect_theme_settings() {
   $settings = [];

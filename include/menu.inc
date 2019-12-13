@@ -2,14 +2,21 @@
 
 /**
  * @file
+ * Menu theme functionality.
  */
 
 /**
- * @param $menu_name
+ * Helper function that generate menu.
+ *
+ * @param string $menu_name
+ *   Menu name.
  * @param bool|false $theme_wrapper
- * @param null $max_depth
+ *   Flag to use theme wrapper.
+ * @param int $max_depth
+ *   Depth level.
  *
  * @return array
+ *   Output array.
  */
 function _fds_base_theme_generate_menu($menu_name, $theme_wrapper = NULL, $max_depth = NULL) {
   if (empty($menu_name)) {
@@ -40,11 +47,14 @@ function _fds_base_theme_generate_menu($menu_name, $theme_wrapper = NULL, $max_d
 /**
  * Alter menu theme function suggestions.
  *
- * @param $item
- * @param $key
- * @param $theme_functions
+ * @param string $item
+ *   Menu item.
+ * @param string $key
+ *   Alter key.
+ * @param array $theme_functions
+ *   Theme function list array.
  */
-function _fds_base_theme_alter_menu_theme_function(&$item, $key, $theme_functions) {
+function _fds_base_theme_alter_menu_theme_function(&$item, $key, array $theme_functions) {
   $old_theme_function = $theme_functions['old'];
   $new_theme_function = $theme_functions['new'];
 
@@ -59,14 +69,16 @@ function _fds_base_theme_alter_menu_theme_function(&$item, $key, $theme_function
  * This is based on the code in the core toolbar module
  * /modules/toolbar/toolbar.module function toolbar_in_active_trail($path)
  *
- * @param
- *   The path of a menu item we're evaluating
+ * @param string $link_path
+ *   The path of a menu item we're evaluating.
+ * @param array $wantedClasses
+ *   Classes array.
  *
- * @return
+ * @return array
  *   An array of classes if active or in the active trail.
  *   An empty array if not active or in the active trail.
  */
-function _fds_base_theme_in_active_trail($link_path, $wantedClasses = array()) {
+function _fds_base_theme_in_active_trail($link_path, array $wantedClasses = array()) {
   $classes = array();
   $active_paths = array();
 
@@ -91,9 +103,9 @@ function _fds_base_theme_in_active_trail($link_path, $wantedClasses = array()) {
 
     return $classes;
   }
-  // If we're not on the front page and the current link is not the current page,
-  // The we need to check the whole active trail. Since Drupal caches the result
-  // of menu_get_active_trail(), this is not too costly.
+  // If we're not on the front page and the current link is not the current
+  // page. The we need to check the whole active trail. Since Drupal caches
+  // the result of menu_get_active_trail(), this is not too costly.
   $active_trail = menu_get_active_trail();
 
   foreach ($active_trail as $item) {
