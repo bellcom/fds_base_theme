@@ -473,10 +473,10 @@ function fds_base_theme_preprocess_page(&$variables) {
   $variables['navigation__secondary'] = _fds_base_theme_generate_menu($secondary_navigation_name, 'header_secondary', 3);
 
   // Add information about the number of sidebars.
-  if (!empty($variables['page']['content__sidebar_left']) && !empty($variables['page']['content__sidebar_right'])) {
+  if (!empty($variables['page']['sidebar_left']) && !empty($variables['page']['sidebar_right'])) {
     $variables['content_column_class'] = ' class="col-12 col-lg-6"';
   }
-  elseif (!empty($variables['page']['content__sidebar_left']) || !empty($variables['page']['content__sidebar_right'])) {
+  elseif (!empty($variables['page']['sidebar_left']) || !empty($variables['page']['sidebar_right'])) {
     $variables['content_column_class'] = ' class="col-12 col-lg-9"';
   }
   else {
@@ -573,7 +573,7 @@ function fds_base_theme_preprocess_region(array &$variables) {
   $classes = &$variables['classes_array'];
 
   // Content region.
-  if ($region === 'content__center') {
+  if ($region === 'content') {
     $variables['theme_hook_suggestions'][] = 'region__no_wrapper';
   }
   // Help region.

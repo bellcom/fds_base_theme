@@ -154,14 +154,13 @@
 <!-- End - content -->
 <div class="container page-container">
   <div class="row">
-
-    <?php if (!empty($page['content__sidebar_left']) || !empty($breadcrumb)): ?>
+    <?php if (!empty($page['sidebar_left']) || !empty($breadcrumb)): ?>
       <!-- Begin - sidebar - left -->
       <aside class="col-12 col-lg-3 sidebar-col">
         <?php if (!empty($breadcrumb)): print $breadcrumb; endif; ?>
 
-        <?php if (!empty($page['content__sidebar_left'])): ?>
-          <?php print render($page['content__sidebar_left']); ?>
+        <?php if (!empty($page['sidebar_left'])): ?>
+          <?php print render($page['sidebar_left']); ?>
         <?php endif; ?>
       </aside>
       <!-- End - sidebar - left -->
@@ -180,17 +179,17 @@
         <?php print render($page['help']); ?>
       <?php endif; ?>
 
-      <?php if (!empty($page['content__center'])): ?>
-        <?php print render($page['content__center']); ?>
+      <?php if (!empty($page['content'])): ?>
+        <?php print render($page['content']); ?>
       <?php endif; ?>
 
     </main>
     <!-- End - content -->
 
-    <?php if (!empty($page['content__sidebar_right'])): ?>
+    <?php if (!empty($page['sidebar_right'])): ?>
       <!-- Begin - sidebar - right -->
       <aside class="col-12 col-lg-3 sidebar-col">
-        <?php print render($page['content__sidebar_right']); ?>
+        <?php print render($page['sidebar_right']); ?>
       </aside>
       <!-- End - sidebar - right -->
     <?php endif; ?>
@@ -198,19 +197,19 @@
   </div>
 </div>
 
-<?php if (!empty($page['footer__row_1']) || !empty($page['footer__column_1']) || !empty($page['footer__column_2']) || !empty($page['footer__column_3']) || !empty($page['footer__row_2'])): ?>
+<?php if (!empty($page['footer']) || !empty($page['footer__column_1']) || !empty($page['footer__column_2']) || !empty($page['footer__column_3']) || !empty($page['footer__row_2'])): ?>
   <!-- Begin - footer -->
   <footer>
     <div class="footer">
       <div class="container">
 
-        <?php if (!empty($page['footer__row_1'])): ?>
+        <?php if (!empty($page['footer'])): ?>
           <!-- Begin - row 1 -->
           <div class="row">
             <div class="col-12 footer-col">
               <section>
                 <div class="align-text-left">
-                  <?php print render($page['footer__row_1']); ?>
+                  <?php print render($page['footer']); ?>
                 </div>
               </section>
             </div>
