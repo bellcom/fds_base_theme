@@ -6,6 +6,8 @@ version = '7.x-1.0'
 
 regions[sidebar_left] = 'Content - sidebar - left'
 regions[help] = 'Help'
+regions[header] = 'Header'
+regions[header_info] = 'Header info'
 regions[content] = 'Content - center'
 regions[sidebar_right] = 'Content - sidebar - right'
 

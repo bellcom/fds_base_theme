@@ -8,17 +8,19 @@
 
       <!-- Begin - logo -->
       <?php if ($logo): ?>
-        <a href="javascript:void(0);" class="alert-leave2" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+        <a class="alert-leave2" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
-      <?php endif; ?>
-
-      <?php if (!empty($site_name)): ?>
-        <a href="javascript:void(0);" href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
+      <?php elseif (!empty($site_name)): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <span class="alert-leave2"><?php print $site_name; ?></span>
         </a>
       <?php endif; ?>
       <!-- End - logo -->
+
+      <?php if (!empty($page['header'])): ?>
+        <?php print render($page['header']); ?>
+      <?php endif; ?>
 
       <!-- Begin - mobile -->
       <button
@@ -26,17 +28,13 @@
         aria-haspopup="menu" title="<?php print t('Open mobile navigation'); ?>"><?php print t('Navigation'); ?></button>
       <!-- End - mobile -->
 
-      <!-- Begin - secondary navigation -->
-      <div class="portal-info">
-        <p class="user"><b class="username">Lone hansen</b> </p>
-
-        <a href="#"
-           class="button button-secondary alert-leave d-print-none"
-           role="button">
-          Log af
-        </a>
-      </div>
-      <!-- End - secondary navigation -->
+      <!-- Begin - header_info -->
+      <?php if (!empty($page['header_info'])): ?>
+        <div class="portal-info header-info">
+          <?php print render($page['header_info']); ?>
+        </div>
+      <?php endif; ?>
+      <!-- End - header_info -->
 
     </div>
   </div>
@@ -147,6 +145,11 @@
   <?php endif; ?>
   <!-- End - navigation -->
 
+  <!-- Begin - help region -->
+  <?php if (!empty($page['help'])): ?>
+    <?php print render($page['help']); ?>
+  <?php endif; ?>
+  <!-- End - help region -->
 </header>
 <!-- End - header -->
 

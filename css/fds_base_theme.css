@@ -1,7 +1,10 @@
 #toolbar #toolbar-menu {
     max-width: none;
 }
-#toolbar #toolbar-menu li:before, #toolbar-home li:before{
+#toolbar #toolbar-menu li:before,
+#toolbar-home li:before,
+.item-list li:before,
+.contextual-links li:before {
     content: '';
 }
 #toolbar #toolbar-menu .icon{
