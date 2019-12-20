@@ -4,10 +4,12 @@ core = '7.x'
 screenshot = 'screenshot.png'
 version = '7.x-1.0'
 
-regions[sidebar_left] = 'Content - sidebar - left'
 regions[help] = 'Help'
 regions[header] = 'Header'
+regions[banner] = 'Banner'
 regions[header_info] = 'Header info'
+regions[breadcrumb] = 'Breadcrumb'
+regions[sidebar_left] = 'Content - sidebar - left'
 regions[content] = 'Content - center'
 regions[sidebar_right] = 'Content - sidebar - right'
 

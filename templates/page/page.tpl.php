@@ -19,6 +19,7 @@
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php elseif (!empty($site_name)): ?>
+
         <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>">
           <span class="alert-leave2"><?php print $site_name; ?></span>
         </a>
@@ -47,45 +48,81 @@
   </div>
   <!-- End - portal header -->
 
-  <!-- Begin - solution header -->
-  <div class="solution-header">
-    <div class="container solution-header-inner">
 
-      <!-- Begin - title -->
-      <?php print render($title_prefix); ?>
-      <?php if (!empty($title)): ?>
-        <div class="solution-heading">
-          <a href="#" title="<?php print t('Home'); ?>"
-             aria-label="<?php print t('Home'); ?>"
-             class="alert-leave2"><?php print $title; ?></a>
-        </div>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <!-- End - title -->
-
-      <!-- Begin - authority details -->
-      <?php if ($theme_settings['authority_details']['show']): ?>
-        <div class="solution-info">
-
-          <?php if ($theme_settings['authority_details']['name']): ?>
-            <h6 class="h5 authority-name"><?php print $theme_settings['authority_details']['name']; ?></h6>
+      <?php if (($logo) || (!empty($site_name)) ): ?>
+        <!-- Begin - solution header -->
+        <div class="solution-header">
+          <?php if (!empty($page['banner'])): ?>
+            <div class="banner">
+              <?php print render($page['banner']); ?>
+            </div>
           <?php endif; ?>
+          <div class="container solution-header-inner">
+            <div class="solution-heading">
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"
+                 aria-label="<?php print t('Home'); ?>"
+                 class="alert-leave2"><?php print $site_name; ?></a>
+            </div>
+            <!-- Begin - authority details -->
+            <?php if ($theme_settings['authority_details']['show']): ?>
+              <div class="solution-info">
 
-          <?php if (!empty($theme_settings['authority_details']['text']) || (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable']))) : ?>
-            <p>
-              <?php print $theme_settings['authority_details']['text']; ?>
+                <?php if ($theme_settings['authority_details']['name']): ?>
+                  <h6 class="h5 authority-name"><?php print $theme_settings['authority_details']['name']; ?></h6>
+                <?php endif; ?>
 
-              <?php if (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable'])) : ?>
-                <?php print '<a href="tel:' . $theme_settings['authority_details']['phone_system'] . '">' . $theme_settings['authority_details']['phone_readable'] . '</a>'; ?>
+                <?php if (!empty($theme_settings['authority_details']['text']) || (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable']))) : ?>
+                  <p>
+                    <?php print $theme_settings['authority_details']['text']; ?>
+
+                    <?php if (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable'])) : ?>
+                      <?php print '<a href="tel:' . $theme_settings['authority_details']['phone_system'] . '">' . $theme_settings['authority_details']['phone_readable'] . '</a>'; ?>
+                    <?php endif; ?>
+                  </p>
+                <?php endif; ?>
+              </div>
+            <?php endif; ?>
+            <!-- End - authority details -->
+          </div>
+        </div>
+      <?php else: ?>
+        <!-- Begin - solution header -->
+        <div class="solution-header">
+          <div class="container solution-header-inner">
+          <!-- Begin - solution name -->
+            <div class="solution-heading">
+              <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>"
+                 aria-label="<?php print t('Home'); ?>"
+                 class="alert-leave2"><?php print $site_name; ?></a>
+            </div>
+          <!-- End - solution name  -->
+          <!-- Begin - authority details -->
+          <?php if ($theme_settings['authority_details']['show']): ?>
+            <div class="solution-info">
+
+              <?php if ($theme_settings['authority_details']['name']): ?>
+                <h6 class="h5 authority-name"><?php print $theme_settings['authority_details']['name']; ?></h6>
               <?php endif; ?>
-            </p>
-          <?php endif; ?>
-        </div>
-      <?php endif; ?>
-      <!-- End - authority details -->
 
-    </div>
-  </div>
+              <?php if (!empty($theme_settings['authority_details']['text']) || (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable']))) : ?>
+                <p>
+                  <?php print $theme_settings['authority_details']['text']; ?>
+
+                  <?php if (!empty($theme_settings['authority_details']['phone_system']) && !empty($theme_settings['authority_details']['phone_readable'])) : ?>
+                    <?php print '<a href="tel:' . $theme_settings['authority_details']['phone_system'] . '">' . $theme_settings['authority_details']['phone_readable'] . '</a>'; ?>
+                  <?php endif; ?>
+                </p>
+              <?php endif; ?>
+            </div>
+          <?php endif; ?>
+          <!-- End - authority details -->
+        </div>
+      </div>
+      <?php endif; ?>
+
+
+
+
   <!-- End - solution header -->
 
   <!-- Begin - navigation -->
@@ -116,12 +153,8 @@
       <!-- Begin - user navigation -->
       <div class="portal-info-mobile">
         <p class="user">
-          <b class="username">Christian Emil Vestergaard Christensen</b>
-        </p>
 
-        <p>Københavns Urmager og Værksted v/Martin Elsig</p>
-
-        <a href="#" class="button button-secondary alert-leave"
+        <a href="/user/logout" class="button button-secondary alert-leave"
            role="button">
           Log af
         </a>
@@ -167,8 +200,6 @@
     <?php if (!empty($page['sidebar_left']) || !empty($breadcrumb)): ?>
       <!-- Begin - sidebar - left -->
       <aside class="col-12 col-lg-3 sidebar-col">
-        <?php if (!empty($breadcrumb)): print $breadcrumb;
-        endif; ?>
 
         <?php if (!empty($page['sidebar_left'])): ?>
           <?php print render($page['sidebar_left']); ?>
@@ -179,6 +210,11 @@
 
     <!-- Begin - content -->
     <main<?php print $content_column_class; ?> id="main-content">
+      <?php if (!empty($breadcrumb)): print $breadcrumb;
+        endif; ?>
+      <?php if (!empty($page['breadcrumb'])): ?>
+        <?php print render($page['breadcrumb']); ?>
+      <?php endif; ?>
 
       <?php print $messages; ?>
 
@@ -189,7 +225,13 @@
       <?php if (!empty($page['help'])): ?>
         <?php print render($page['help']); ?>
       <?php endif; ?>
-
+      <!-- Begin - title -->
+      <?php print render($title_prefix); ?>
+      <?php if (!empty($title)): ?>
+        <h1><?php print $title; ?></h1>
+      <?php endif; ?>
+      <?php print render($title_suffix); ?>
+      <!-- End - title -->
       <?php if (!empty($page['content'])): ?>
         <?php print render($page['content']); ?>
       <?php endif; ?>
