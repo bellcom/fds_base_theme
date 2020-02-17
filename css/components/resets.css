@@ -1,0 +1,7 @@
+ul li::before {
+  display: none;
+}
+
+.region-secondary-menu .inline-list > li + li {
+  margin-left: 20px;
+}
