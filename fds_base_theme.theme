@@ -1,6 +1,7 @@
 <?php
 include(dirname(__FILE__) . '/include/settings.inc');
 
+use Drupal\image\Entity\ImageStyle;
 use Drupal\Component\Utility\Html;
 
 /**
@@ -91,5 +92,35 @@ function fds_base_theme_preprocess_menu_local_task(&$variables) {
   // Not active.
   else {
     $variables['link']['#options']['attributes']['class'][] = 'button-secondary';
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function fds_base_theme_preprocess_paragraph__os2web_banner_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  // Background image.
+  if ($paragraph->field_os2web_banner_bg_image && !$paragraph->field_os2web_banner_bg_image->isEmpty()) {
+//    $image_uri   = $paragraph->field_os2web_banner_bg_image->entity->image->getFileUri();
+//    $image_style = ImageStyle::load('os2web_banner_paragraph');
+//    $image_url   = $image_style->buildUrl($image_uri);
+
+//    $variables['background_image'] = $image_url;
+  }
+}
+
+/*
+ * Implements template_preprocess_field.
+ */
+function fds_base_theme_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+
+  if ($element['#field_name'] == 'field_os2web_banner_links') {
+
+    foreach ($variables['items'] as $delta => &$item) {
+      $item['content']['#options']['attributes']['class'][] = 'button button-primary';
+    }
   }
 }
