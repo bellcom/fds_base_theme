@@ -5,3 +5,7 @@ ul li::before {
 .region-secondary-menu .inline-list > li + li {
   margin-left: 20px;
 }
+
+p {
+  /*max-width: initial !important;*/
+}
