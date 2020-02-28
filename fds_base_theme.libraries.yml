@@ -3,3 +3,7 @@ styles:
     theme:
       css/components/resets.css: {}
       css/components/menu-local-tasks.css: {}
+
+javascripts:
+  js:
+    js/print_page.js: {}

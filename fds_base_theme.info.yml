@@ -25,3 +25,4 @@ regions:
 
 libraries:
   - 'fds_base_theme/styles'
+  - 'fds_base_theme/javascripts'
