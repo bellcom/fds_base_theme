@@ -3,6 +3,7 @@ styles:
     theme:
       css/components/resets.css: {}
       css/components/menu-local-tasks.css: {}
+      css/components/toolbar-menu.css: {}
 
 javascripts:
   js:
