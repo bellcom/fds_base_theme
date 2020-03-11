@@ -111,6 +111,19 @@ function fds_base_theme_preprocess_paragraph__os2web_banner_paragraph(&$variable
   }
 }
 
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function fds_base_theme_preprocess_paragraph__os2web_wrapper(&$variables) {
+  $paragraph = $variables['paragraph'];
+  if ($paragraph->field_os2web_con_type && $paragraph->field_os2web_con_type->value) {
+    $variables['container_type'] = $paragraph->field_os2web_con_type->value;
+  }
+  if ($paragraph->field_os2web_bg_color && $paragraph->field_os2web_bg_color->value) {
+    $variables['background_color'] = $paragraph->field_os2web_bg_color->value;
+  }
+}
+
 /*
  * Implements template_preprocess_field.
  */
