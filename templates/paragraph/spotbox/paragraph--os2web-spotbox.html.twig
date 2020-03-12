@@ -6,28 +6,8 @@
 ] %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
-    <div class="container">
       {% block content %}
         <div class="card ">
-        {% if paragraph.field_os2web_spotbox_heading.value or paragraph.field_os2web_spotbox_subheading.value%}
-          <div class="card-header">
-            {% if paragraph.field_os2web_spotbox_heading.value %}
-              <div class="h5 header-title">{{ content.field_os2web_spotbox_heading }}</div>
-            {% endif %}
-            {% if paragraph.field_os2web_spotbox_subheading.value %}
-              <div class="sub-header">
-                {{ content.field_os2web_spotbox_subheading }}
-              </div>
-            {% endif %}
-          </div>
-        {% endif %}
-        {% if paragraph.field_os2web_spotbox_pre_body.value %}
-          <div class="card-text">
-            <div class="text">
-              {{ content.field_os2web_spotbox_pre_body }}
-            </div>
-          </div>
-        {% endif %}
         {% if paragraph.field_os2web_spotbox.value %}
           <div class="card-content">
             <div class="content-text">
@@ -35,16 +15,7 @@
             </div>
           </div>
         {% endif %}
-        {% if paragraph.field_os2web_spotbox_post_body.value %}
-          <div class="card-text">
-            <div class="text">
-              {{ content.field_os2web_spotbox_post_body }}
-            </div>
-          </div>
-        {% endif %}
         </div>
-
       {% endblock %}
-    </div>
   </div>
 {% endblock paragraph %}
