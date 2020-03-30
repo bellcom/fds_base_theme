@@ -1,4 +1,5 @@
-ul li::before {
+.toolbar ul li::before,
+ul.menu-local-tasks-list li::before {
   display: none;
 }
 
