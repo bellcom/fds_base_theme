@@ -15,10 +15,11 @@ p:last-child {
   margin-bottom: 0;
 }
 
-ul li {
+/* Adding body for increased specificity over existing styles. Beats doing !important. */
+body ul li {
   padding-left: 24px;
 }
-ul li::before {
+body ul li::before {
   top: 1px;
   font-size: 28px;
 }
