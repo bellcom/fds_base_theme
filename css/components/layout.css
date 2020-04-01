@@ -7,3 +7,8 @@
 .field--name-field-os2web-page-paragraph-right .field__item + .field__item {
   margin-top: 20px;
 }
+
+/* Height on image. */
+.field--name-field-os2web-page-image img {
+  height: auto;
+}
