@@ -13,8 +13,9 @@
     {% for item in items %}
       {%
         set classes = [
-          item.in_active_trail and (item.is_expanded and item.below) ? 'current',
-          item.in_active_trail and not (item.is_expanded) ? 'active',
+          item.in_active_trail ? 'current',
+          item.is_active ? 'active',
+          (item.is_expanded and item.below) ? 'has-submenu',
         ]
       %}
       <li{{ item.attributes.addClass(classes) }}>
