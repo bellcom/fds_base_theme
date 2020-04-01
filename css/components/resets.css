@@ -1,5 +1,6 @@
 .toolbar ul li::before,
-ul.menu-local-tasks-list li::before {
+ul.menu-local-tasks-list li::before ,
+ul.contextual-links li::before {
   display: none;
 }
 
