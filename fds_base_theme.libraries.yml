@@ -4,6 +4,7 @@ styles:
       css/components/resets.css: {}
       css/components/menu-local-tasks.css: {}
       css/components/toolbar-menu.css: {}
+      css/components/box.css: {}
       css/components/layout.css: {}
 
 javascripts:
