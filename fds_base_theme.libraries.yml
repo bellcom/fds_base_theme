@@ -5,8 +5,11 @@ styles:
       css/components/menu-local-tasks.css: {}
       css/components/toolbar-menu.css: {}
       css/components/box.css: {}
+      css/components/micro-modal.css: {}
       css/components/layout.css: {}
 
 javascripts:
   js:
+    'https://unpkg.com/micromodal/dist/micromodal.min.js': { type: external }
     js/print_page.js: {}
+    js/micro-modal.js: {}
