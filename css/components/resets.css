@@ -25,3 +25,9 @@ body ul li::before {
   top: 1px;
   font-size: 28px;
 }
+
+/* Replace margins set by Classy theme. */
+.button {
+  margin-left: initial;
+  margin-right: initial;
+}
