@@ -8,9 +8,11 @@ ul.contextual-links li::before {
   margin-left: 20px;
 }
 
+.body-text:first-child,
 p:first-child {
   margin-top: 0;
 }
+.body-text:last-child,
 p:last-child {
   margin-bottom: 0;
 }
