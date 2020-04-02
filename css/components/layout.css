@@ -1,11 +1,12 @@
 /* Spacing between elements inside sidebars. */
 .region-sidebar-first > div + div,
 .region-sidebar-second > div + div {
-  margin-top: 30px;
+  margin-top: 32px;
 }
-.field--name-field-os2web-page-paragraph-left .field__item + .field__item,
-.field--name-field-os2web-page-paragraph-righ .field__item + .field__item {
-  margin-top: 30px;
+.field--name-field-os2web-page-paragraph-left > .field__item + .field__item,
+.field--name-field-os2web-page-paragraph-righ > .field__item + .field__item,
+.field--name-field-os2web-page-paragraph-narr > .field__item + .field__item {
+  margin-top: 32px;
 }
 
 img {
@@ -14,8 +15,8 @@ img {
 }
 
 .container-fluid {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 16px;
+  padding-left: 16px;
 
   margin-right: auto;
   margin-left: auto;
