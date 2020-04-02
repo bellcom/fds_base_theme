@@ -5,7 +5,8 @@
 }
 .field--name-field-os2web-page-paragraph-left > .field__item + .field__item,
 .field--name-field-os2web-page-paragraph-righ > .field__item + .field__item,
-.field--name-field-os2web-page-paragraph-narr > .field__item + .field__item {
+.field--name-field-os2web-page-paragraph-narr > .field__item + .field__item,
+.field--name-field-os2web-page-description + .field--name-field-os2web-page-paragraph-narr {
   margin-top: 32px;
 }
 
