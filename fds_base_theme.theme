@@ -2,6 +2,7 @@
 include(dirname(__FILE__) . '/include/settings.inc');
 
 use Drupal\Component\Utility\Html;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Implements hook_preprocess_menu().
@@ -62,6 +63,18 @@ function fds_base_theme_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
+ * Implements hook_theme_suggestions_taxonomy_term_alter().
+ */
+function fds_base_theme_theme_suggestions_taxonomy_term_alter(
+  &$suggestions,
+  $variables,
+  $hook
+) {
+  $suggestions[] = 'taxonomy_term__' . $variables['elements']['#taxonomy_term']->getVocabularyId() . '__' . $variables['elements']['#view_mode'];
+  $suggestions[] = 'taxonomy_term__' . $variables['elements']['#view_mode'];
+}
+
+/**
  * Implements hook_preprocess_HOOK().
  */
 function fds_base_theme_preprocess_node(&$variables) {
@@ -83,6 +96,30 @@ function fds_base_theme_preprocess_paragraph(&$variables) {
   // Entity variables
   $variables['attributes']['class'][] = HTML::cleanCssIdentifier('entity-' . $view_mode);
   $variables['attributes']['class'][] = HTML::cleanCssIdentifier('entity-' . $view_mode . '--' . $paragraph->getType());
+
+  // Background color
+  if ($paragraph->field_background_color && !$paragraph->field_background_color->isEmpty()) {
+
+    if ($fields_target_ids = $paragraph->get('field_background_color')->getValue()) {
+
+      if (isset($fields_target_ids[0]['target_id']) && $tid = $fields_target_ids[0]['target_id']) {
+        $taxonomy_term = Term::load($tid);
+
+        if ($fields_background_color = $taxonomy_term->get('field_machine_name')->getValue()) {
+          $variables['attributes']['class'][] = 'paragraph--background-color-' . $fields_background_color[0]['value'];
+        }
+      }
+    }
+  }
+
+  // Background image
+  if ($paragraph->field_background_image && !$paragraph->field_background_image->isEmpty()) {
+    $image_uri   = $paragraph->field_background_image->first()->entity->getFileUri();
+    $image_style = ImageStyle::load('paragraph_background_image');
+    $image_url   = $image_style->buildUrl($image_uri);
+
+    $variables['background_image'] = $image_url;
+  }
 }
 
 /**
@@ -138,12 +175,15 @@ function fds_base_theme_preprocess_paragraph__os2web_banner_paragraph(&$variable
   $paragraph = $variables['paragraph'];
 
   // Background image.
-  if ($paragraph->field_os2web_banner_bg_image && !$paragraph->field_os2web_banner_bg_image->isEmpty()) {
-//    $image_uri   = $paragraph->field_os2web_banner_bg_image->entity->image->getFileUri();
-//    $image_style = ImageStyle::load('os2web_banner_paragraph');
-//    $image_url   = $image_style->buildUrl($image_uri);
+  if ($paragraph->hasField('field_os2web_banner_image') && !$paragraph->field_os2web_banner_image->isEmpty()) {
+    $image_uri = $paragraph->field_os2web_banner_image->first()->entity->getFileUri();
+    $image_style = ImageStyle::load('paragraph_background_image');
 
-//    $variables['background_image'] = $image_url;
+    if (!empty($image_style)) {
+      $image_url = $image_style->buildUrl($image_uri);
+
+      $variables['background_image'] = file_url_transform_relative($image_url);
+    }
   }
 }
 
@@ -171,5 +211,33 @@ function fds_base_theme_preprocess_field(&$variables, $hook) {
     foreach ($variables['items'] as $delta => &$item) {
       $item['content']['#options']['attributes']['class'][] = 'button button-primary';
     }
+  }
+}
+
+/**
+ * Prepares variables for OS2Web Spotbox templates.
+ *
+ * Default template: os2web_spotbox.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the user information and any
+ *   - attributes: HTML attributes for the containing element.
+ */
+function fds_base_theme_preprocess_os2web_spotbox__image(array &$variables) {
+  $spotbox = $variables['elements']['#os2web_spotbox'];
+  $variables['spotbox_url'] = FALSE;
+  if (!empty($variables['content']['field_os2web_spotbox_link'][0]['#url'])) {
+    $variables['spotbox_url'] = $variables['content']['field_os2web_spotbox_link'][0]['#url'];
+  }
+
+  if (!empty($variables['content']['field_os2web_spotbox_link'][0]['#title'])
+    && $variables['spotbox_url']
+    && $variables['content']['field_os2web_spotbox_link'][0]['#title'] != $variables['spotbox_url']->toString()) {
+    $variables['spotbox_text'] = $variables['content']['field_os2web_spotbox_link'][0]['#title'];
+  }
+
+  if (!empty($variables['content']['field_os2web_spotbox_bg_image'][0])) {
+    $variables['spotbox_image'] = $variables['content']['field_os2web_spotbox_bg_image'][0];
   }
 }
