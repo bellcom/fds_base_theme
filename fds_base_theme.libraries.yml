@@ -12,5 +12,6 @@ styles:
 javascripts:
   js:
     'https://unpkg.com/micromodal/dist/micromodal.min.js': { type: external }
+    js/init-dkfds.js: {}
     js/print_page.js: {}
     js/micro-modal.js: {}
