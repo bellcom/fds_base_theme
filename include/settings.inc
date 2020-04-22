@@ -18,6 +18,7 @@ function _fds_base_theme_collect_theme_settings() {
   $settings['contact_information']['phone_readable'] = theme_get_setting('phone_readable');
   $settings['contact_information']['email'] = theme_get_setting('email');
   $settings['contact_information']['working_hours'] = theme_get_setting('working_hours');
+  $settings['contact_information']['additional_information'] = theme_get_setting('additional_information');
 
   // Social
   $settings['social']['facebook']['active'] = theme_get_setting('facebook');
