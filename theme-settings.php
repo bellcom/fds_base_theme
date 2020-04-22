@@ -91,7 +91,7 @@ function fds_base_theme_form_system_theme_settings_alter(
 
   // Additional information.
   $form['contact_information']['addition_information'] = [
-    '#type' => 'textfield',
+    '#type' => 'textarea',
     '#title' => t('Additional information (free text)'),
     '#default_value' => theme_get_setting('addition_information'),
   ];
