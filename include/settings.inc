@@ -8,7 +8,7 @@
 function _fds_base_theme_collect_theme_settings() {
   $settings = [];
 
-  // Contact information
+  // Contact information.
   $settings['contact_information']['business_owner_name'] = theme_get_setting('business_owner_name');
   $settings['contact_information']['business_startup_year'] = theme_get_setting('business_startup_year');
   $settings['contact_information']['address'] = theme_get_setting('address');
@@ -17,19 +17,21 @@ function _fds_base_theme_collect_theme_settings() {
   $settings['contact_information']['phone_system'] = theme_get_setting('phone_system');
   $settings['contact_information']['phone_readable'] = theme_get_setting('phone_readable');
   $settings['contact_information']['email'] = theme_get_setting('email');
-  $settings['contact_information']['working_hours__row_1__day'] = theme_get_setting('working_hours__row_1__day');
-  $settings['contact_information']['working_hours__row_1__time'] = theme_get_setting('working_hours__row_1__time');
-  $settings['contact_information']['working_hours__row_2__day'] = theme_get_setting('working_hours__row_2__day');
-  $settings['contact_information']['working_hours__row_2__time'] = theme_get_setting('working_hours__row_2__time');
-  $settings['contact_information']['working_hours__row_3__day'] = theme_get_setting('working_hours__row_3__day');
-  $settings['contact_information']['working_hours__row_3__time'] = theme_get_setting('working_hours__row_3__time');
-  $settings['contact_information']['working_hours__row_4__day'] = theme_get_setting('working_hours__row_4__day');
-  $settings['contact_information']['working_hours__row_4__time'] = theme_get_setting('working_hours__row_4__time');
-  $settings['contact_information']['working_hours__row_5__day'] = theme_get_setting('working_hours__row_5__day');
-  $settings['contact_information']['working_hours__row_5__time'] = theme_get_setting('working_hours__row_5__time');
   $settings['contact_information']['additional_information'] = theme_get_setting('additional_information');
 
-  // Social
+  // Working hours.
+  $settings['working_hours']['working_hours__row_1__day'] = theme_get_setting('working_hours__row_1__day');
+  $settings['working_hours']['working_hours__row_1__time'] = theme_get_setting('working_hours__row_1__time');
+  $settings['working_hours']['working_hours__row_2__day'] = theme_get_setting('working_hours__row_2__day');
+  $settings['working_hours']['working_hours__row_2__time'] = theme_get_setting('working_hours__row_2__time');
+  $settings['working_hours']['working_hours__row_3__day'] = theme_get_setting('working_hours__row_3__day');
+  $settings['working_hours']['working_hours__row_3__time'] = theme_get_setting('working_hours__row_3__time');
+  $settings['working_hours']['working_hours__row_4__day'] = theme_get_setting('working_hours__row_4__day');
+  $settings['working_hours']['working_hours__row_4__time'] = theme_get_setting('working_hours__row_4__time');
+  $settings['working_hours']['working_hours__row_5__day'] = theme_get_setting('working_hours__row_5__day');
+  $settings['working_hours']['working_hours__row_5__time'] = theme_get_setting('working_hours__row_5__time');
+
+  // Social.
   $settings['social']['facebook']['active'] = theme_get_setting('facebook');
   $settings['social']['facebook']['url'] = theme_get_setting('facebook_url');
   $settings['social']['facebook']['tooltip'] = theme_get_setting('facebook_tooltip');

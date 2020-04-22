@@ -83,52 +83,62 @@ function fds_base_theme_form_system_theme_settings_alter(
   ];
 
   // Working hours
-  $form['contact_information']['working_hours__row_1__day'] = [
+  $form['working_hours'] = [
+    '#type' => 'details',
+    '#title' => t('Working hours'),
+    '#group' => 'fds_base_theme',
+  ];
+  $form['working_hours']['working_hours__row_1__day'] = [
     '#type' => 'textfield',
     '#title' => t('Day'),
     '#default_value' => theme_get_setting('working_hours__row_1__day'),
+    '#prefix' => '<h3>' . t('Row 1') . '</h3>',
   ];
-  $form['contact_information']['working_hours__row_1__time'] = [
+  $form['working_hours']['working_hours__row_1__time'] = [
     '#type' => 'textfield',
     '#title' => t('Time'),
     '#default_value' => theme_get_setting('working_hours__row_1__time'),
   ];
-  $form['contact_information']['working_hours__row_2__day'] = [
+  $form['working_hours']['working_hours__row_2__day'] = [
     '#type' => 'textfield',
     '#title' => t('Day'),
     '#default_value' => theme_get_setting('working_hours__row_2__day'),
+    '#prefix' => '<h3>' . t('Row 2') . '</h3>',
   ];
-  $form['contact_information']['working_hours__row_2__time'] = [
+  $form['working_hours']['working_hours__row_2__time'] = [
     '#type' => 'textfield',
     '#title' => t('Time'),
     '#default_value' => theme_get_setting('working_hours__row_2__time'),
   ];
-  $form['contact_information']['working_hours__row_3__day'] = [
+  $form['working_hours']['working_hours__row_3__day'] = [
     '#type' => 'textfield',
     '#title' => t('Day'),
     '#default_value' => theme_get_setting('working_hours__row_3__day'),
+    '#prefix' => '<h3>' . t('Row 3') . '</h3>',
   ];
-  $form['contact_information']['working_hours__row_3__time'] = [
+  $form['working_hours']['working_hours__row_3__time'] = [
     '#type' => 'textfield',
     '#title' => t('Time'),
     '#default_value' => theme_get_setting('working_hours__row_3__time'),
   ];
-  $form['contact_information']['working_hours__row_4__day'] = [
+  $form['working_hours']['working_hours__row_4__day'] = [
     '#type' => 'textfield',
     '#title' => t('Day'),
     '#default_value' => theme_get_setting('working_hours__row_4__day'),
+    '#prefix' => '<h3>' . t('Row 4') . '</h3>',
   ];
-  $form['contact_information']['working_hours__row_4__time'] = [
+  $form['working_hours']['working_hours__row_4__time'] = [
     '#type' => 'textfield',
     '#title' => t('Time'),
     '#default_value' => theme_get_setting('working_hours__row_4__time'),
   ];
-  $form['contact_information']['working_hours__row_5__day'] = [
+  $form['working_hours']['working_hours__row_5__day'] = [
     '#type' => 'textfield',
     '#title' => t('Day'),
     '#default_value' => theme_get_setting('working_hours__row_5__day'),
+    '#prefix' => '<h3>' . t('Row 5') . '</h3>',
   ];
-  $form['contact_information']['working_hours__row_5__time'] = [
+  $form['working_hours']['working_hours__row_5__time'] = [
     '#type' => 'textfield',
     '#title' => t('Time'),
     '#default_value' => theme_get_setting('working_hours__row_5__time'),
