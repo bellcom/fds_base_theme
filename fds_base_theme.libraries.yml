@@ -8,6 +8,7 @@ styles:
       css/components/micro-modal.css: {}
       css/components/layout.css: {}
       css/components/contact.css: {}
+      css/components/spotbox.css: {}
 
 javascripts:
   js:
