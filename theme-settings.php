@@ -145,10 +145,10 @@ function fds_base_theme_form_system_theme_settings_alter(
   ];
 
   // Additional information.
-  $form['contact_information']['addition_information'] = [
+  $form['contact_information']['additional_information'] = [
     '#type' => 'textarea',
     '#title' => t('Additional information (free text)'),
-    '#default_value' => theme_get_setting('addition_information'),
+    '#default_value' => theme_get_setting('additional_information'),
   ];
 
   // Social
