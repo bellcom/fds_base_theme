@@ -9,6 +9,8 @@ styles:
       css/components/layout.css: {}
       css/components/contact.css: {}
       css/components/spotbox.css: {}
+      css/utils/flexy-row.css: {}
+      css/utils/flexy-list.css: {}
 
 javascripts:
   js:
