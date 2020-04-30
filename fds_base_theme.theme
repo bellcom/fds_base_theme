@@ -201,6 +201,23 @@ function fds_base_theme_preprocess_paragraph__os2web_wrapper(&$variables) {
 }
 
 /*
+ * Implements hook_preprocess_paragraph().
+ * For text with image paragraphs.
+ */
+function fds_base_theme_preprocess_paragraph__os2web_twi_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+
+  if ($fields = $paragraph->get('field_os2web_twi_image_position')->getValue()) {
+
+    if (isset($fields[0]) && $fields[0]['value'] === 'right') {
+      $variables['image_position'] = 'right';
+    } else {
+      $variables['image_position'] = 'left';
+    }
+  }
+}
+
+/*
  * Implements template_preprocess_field.
  */
 function fds_base_theme_preprocess_field(&$variables, $hook) {
