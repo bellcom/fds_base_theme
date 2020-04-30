@@ -6,14 +6,17 @@ styles:
       css/components/toolbar-menu.css: {}
       css/components/box.css: {}
       css/components/micro-modal.css: {}
+      css/components/tiny-slider.css: {}
       css/components/layout.css: {}
       css/components/contact.css: {}
       css/components/spotbox.css: {}
       css/utils/flexy-row.css: {}
       css/utils/flexy-list.css: {}
+      'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css': { type: external }
 
 javascripts:
   js:
+    'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js': { type: external }
     'https://unpkg.com/micromodal/dist/micromodal.min.js': { type: external }
     js/init-dkfds.js: {}
     js/print_page.js: {}
