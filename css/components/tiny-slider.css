@@ -3,7 +3,9 @@
 }
 
 /* Navigation. */
-.tns-nav {}
+.tns-nav {
+  text-align: center;
+}
 .tns-nav button {
   display: inline-block;
 
@@ -22,4 +24,10 @@
 }
 .tns-nav button.tns-nav-active {
   background-color: #000;
+}
+
+/* Hide start and stop. */
+.paragraph--type--os2web-slideshow button[data-action="start"],
+.paragraph--type--os2web-slideshow button[data-action="stop"] {
+  display: none;
 }
