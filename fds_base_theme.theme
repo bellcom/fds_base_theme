@@ -63,6 +63,16 @@ function fds_base_theme_preprocess_taxonomy_term(&$variables) {
 }
 
 /**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function fds_base_theme_theme_suggestions_field_alter(&$suggestions, $variables) {
+  $element = $variables['element'];
+  $view_mode = $element['#view_mode'];
+
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $view_mode;
+}
+
+/**
  * Implements hook_theme_suggestions_taxonomy_term_alter().
  */
 function fds_base_theme_theme_suggestions_taxonomy_term_alter(
