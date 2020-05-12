@@ -12,6 +12,7 @@ styles:
       css/components/spotbox.css: {}
       css/components/breadcrumb.css: {}
       css/components/gis-map.css: {}
+      css/components/eu-cookie-compliance.css: {}
       css/utils/flexy-row.css: {}
       css/utils/flexy-list.css: {}
       'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css': { type: external }
