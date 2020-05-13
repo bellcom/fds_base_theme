@@ -32,3 +32,8 @@ body ul li::before {
   margin-left: initial;
   margin-right: initial;
 }
+
+/* After update to DFKDS v. 6.x+ details added a margin to bottom and .details was added to <html>. */
+html.details {
+  margin-bottom: 0;
+}
