@@ -15,6 +15,7 @@ styles:
       css/components/eu-cookie-compliance.css: {}
       css/components/form.css: {}
       css/components/meeting.css: {}
+      css/components/search.css: {}
       css/utils/flexy-row.css: {}
       css/utils/flexy-list.css: {}
       'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css': { type: external }
