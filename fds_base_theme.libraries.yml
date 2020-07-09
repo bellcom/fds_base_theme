@@ -28,3 +28,4 @@ javascripts:
     js/init-dkfds.js: {}
     js/print_page.js: {}
     js/micro-modal.js: {}
+    js/slideshow.js: {}
