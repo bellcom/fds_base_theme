@@ -8,7 +8,7 @@
     event.preventDefault();
 
     var link = this;
-    var image = event.target;
+    var image = link.querySelector('img');
     var text = image.getAttribute('alt');
     var pathToImage = link.getAttribute('href');
     var wrapper = link.closest('.field--name-field-os2web-slideshow-image');
@@ -61,6 +61,7 @@
       autoplay: true,
       autoplayHoverPause: true,
       gutter: 32,
+      rewind: true,
       responsive: {
         576: {
           items: 2,
