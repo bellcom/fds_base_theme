@@ -6,16 +6,8 @@
 ] %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
-      {% block content %}
-        <div class="card ">
-        {% if paragraph.field_os2web_spotbox.value %}
-          <div class="card-content">
-            <div class="content-text">
-              {{ content.field_os2web_spotbox }}
-            </div>
-          </div>
-        {% endif %}
-        </div>
-      {% endblock %}
+    {% block content %}
+      {{ content.field_os2web_spotbox }}
+    {% endblock %}
   </div>
 {% endblock paragraph %}
