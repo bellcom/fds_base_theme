@@ -9,6 +9,7 @@ styles:
       css/components/tiny-slider.css: {}
       css/components/layout.css: {}
       css/components/contact.css: {}
+      css/components/related-links.css: {}
       css/components/spotbox.css: {}
       css/components/breadcrumb.css: {}
       css/components/gis-map.css: {}
