@@ -24,7 +24,7 @@
   </ul>
 {% else %}
   <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    <div{{ title_attributes.addClass(title_classes) }}><h2>{{ label }}</h2></div>
     <ul{{ attributes.addClass(classes) }}>
       {% for item in items %}
         <li{{ item.attributes }}>

@@ -15,10 +15,23 @@
 ]
 %}
 
-<ul{{ attributes.addClass(classes) }}>
-  {% for item in items %}
-    <li{{ item.attributes }}>
-      {{ item.content }}
-    </li>
-  {% endfor %}
-</ul>
+{% if label_hidden %}
+  <ul{{ attributes.addClass(classes) }}>
+    {% for item in items %}
+      <li{{ item.attributes }}>
+        {{ item.content }}
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <div{{ attributes.addClass(classes) }}>
+    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+    <ul{{ attributes.addClass(classes) }}>
+      {% for item in items %}
+        <li{{ item.attributes }}>
+          {{ item.content }}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
