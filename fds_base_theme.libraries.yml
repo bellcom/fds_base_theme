@@ -18,6 +18,7 @@ styles:
       css/components/meeting.css: {}
       css/components/search.css: {}
       css/components/borgerdk.css: {}
+      css/components/print.css: {}
       css/utils/flexy-row.css: {}
       css/utils/flexy-list.css: {}
       css/utils/grid.css: {}

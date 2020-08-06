@@ -1,0 +1,6 @@
+@media print {
+
+  .block-local-tasks-block {
+    display: none !important;
+  }
+}
