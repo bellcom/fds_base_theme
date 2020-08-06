@@ -8,9 +8,13 @@
 ]
 %}
 <div {{ attributes.addClass(classes) }}>
-  {{ content }}
+  <h4>{{ label }}</h4>
 
-  <div class="field--type-link">
+  {{ content }}
+  
+  <br>
+
+  <div class="field--type-link text-align-right">
     <a href="{{ url }}">
       {{ 'Read more' | trans }}
     </a>
