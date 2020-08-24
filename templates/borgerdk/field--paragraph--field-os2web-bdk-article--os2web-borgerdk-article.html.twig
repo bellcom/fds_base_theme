@@ -60,10 +60,13 @@
           {{ item.content.article }}
           <ul class="accordion">
             {{ item.content.microarticles }}
+            {{ item.content.legislation }}
+            {{ item.content.recommendation }}
           </ul>
           <div>
             {{ item.content.selfservices }}
           </div>
+          {{ item.content.byline }}
         </div>
       {% endfor %}
     </div>
@@ -73,10 +76,13 @@
         {{ item.content.article }}
         <ul class="accordion">
           {{ item.content.microarticles }}
+          {{ item.content.legislation }}
+          {{ item.content.recommendation }}
         </ul>
         <div>
           {{ item.content.selfservices }}
         </div>
+        {{ item.content.byline }}
       </div>
     {% endfor %}
   {% endif %}
@@ -91,10 +97,13 @@
           {{ item.content.article }}
           <ul class="accordion">
             {{ item.content.microarticles }}
+            {{ item.content.legislation }}
+            {{ item.content.recommendation }}
           </ul>
           <div>
             {{ item.content.selfservices }}
           </div>
+          {{ item.content.byline }}
         </div>
       {% endfor %}
       {% if multiple %}
