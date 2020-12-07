@@ -18,6 +18,9 @@ function _fds_base_theme_collect_theme_settings() {
   $settings['contact_information']['phone_readable'] = theme_get_setting('phone_readable');
   $settings['contact_information']['email'] = theme_get_setting('email');
   $settings['contact_information']['additional_information'] = theme_get_setting('additional_information');
+  $settings['contact_information']['vat_no'] = theme_get_setting('vat_no');
+  $settings['contact_information']['giro_no'] = theme_get_setting('giro_no');
+  $settings['contact_information']['ean_no'] = theme_get_setting('ean_no');
 
   // Working hours.
   $settings['working_hours']['working_hours__row_1__day'] = theme_get_setting('working_hours__row_1__day');

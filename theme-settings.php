@@ -82,6 +82,27 @@ function fds_base_theme_form_system_theme_settings_alter(
     '#default_value' => theme_get_setting('email'),
   ];
 
+  // VAT no.
+  $form['contact_information']['vat_no'] = [
+    '#type' => 'textfield',
+    '#title' => t('CVR'),
+    '#default_value' => theme_get_setting('vat_no'),
+  ];
+
+  // Giro no.
+  $form['contact_information']['giro_no'] = [
+    '#type' => 'textfield',
+    '#title' => t('Giro nummer'),
+    '#default_value' => theme_get_setting('giro_no'),
+  ];
+
+  // EAN no.
+  $form['contact_information']['ean_no'] = [
+    '#type' => 'textfield',
+    '#title' => t('EAN nummer'),
+    '#default_value' => theme_get_setting('ean_no'),
+  ];
+
   // Working hours
   $form['working_hours'] = [
     '#type' => 'details',
