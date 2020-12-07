@@ -75,6 +75,22 @@ function fds_base_theme_form_system_theme_settings_alter(
     '#default_value' => theme_get_setting('phone_readable'),
   ];
 
+  // Fax number
+  $form['contact_information']['fax_system'] = [
+    '#type' => 'textfield',
+    '#title' => t('Fax - system'),
+    '#description' => t('REMEMBER: without spaces and include country code (ex. +45). Full example: +4570260085'),
+    '#default_value' => theme_get_setting('fax_system'),
+  ];
+
+  // Fax number - readable
+  $form['contact_information']['fax_readable'] = [
+    '#type' => 'textfield',
+    '#title' => t('Fax - readable'),
+    '#description' => t('The fax number which are displayed to the end-user. Ex. +45 7026 0085'),
+    '#default_value' => theme_get_setting('fax_readable'),
+  ];
+
   // E-mail address
   $form['contact_information']['email'] = [
     '#type' => 'textfield',

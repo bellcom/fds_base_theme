@@ -16,6 +16,8 @@ function _fds_base_theme_collect_theme_settings() {
   $settings['contact_information']['city'] = theme_get_setting('city');
   $settings['contact_information']['phone_system'] = theme_get_setting('phone_system');
   $settings['contact_information']['phone_readable'] = theme_get_setting('phone_readable');
+  $settings['contact_information']['fax_system'] = theme_get_setting('fax_system');
+  $settings['contact_information']['fax_readable'] = theme_get_setting('fax_readable');
   $settings['contact_information']['email'] = theme_get_setting('email');
   $settings['contact_information']['additional_information'] = theme_get_setting('additional_information');
   $settings['contact_information']['vat_no'] = theme_get_setting('vat_no');
