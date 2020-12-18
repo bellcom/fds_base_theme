@@ -1,25 +1,29 @@
 // Accordion - go to item in hash.
 (function() {
-  var identifier = window.location.hash;
+  document.addEventListener("DOMContentLoaded", function() {
 
-  if (identifier) {
-    var identifierWithHash = identifier.replace('#', '');
-    var accordionItem = document.getElementById(identifierWithHash);
+    var identifier = window.location.hash;
 
-    if (accordionItem) {
-      var listItem = accordionItem.closest('li');
-      var button = listItem.querySelector('.accordion-button');
+    if (identifier) {
+      var accordionItem = document.querySelector(identifier);
 
-      // Expand item.
-      listItem.setAttribute('aria-expanded', 'false');
-      listItem.setAttribute('aria-hidden', 'true');
+      if (accordionItem) {
+        var listItem = accordionItem.closest('li');
+        var button = listItem.querySelector('.accordion-button');
 
-      button.setAttribute('aria-expanded', 'false');
+        // Expand item.
+        listItem.setAttribute('aria-expanded', 'false');
+        listItem.setAttribute('aria-hidden', 'true');
 
-      // Scroll into view.
-      accordionItem.scrollIntoView({ behavior: 'smooth' });
+        button.setAttribute('aria-expanded', 'false');
+
+        // Scroll into view.
+        setTimeout(function() {
+          button.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
     }
-  }
+  });
 })();
 
 // Accordion - add link on click.
@@ -30,7 +34,7 @@
     var element = this;
     var elementID = element.getAttribute('aria-controls');
 
-    history.pushState({}, '', elementID);
+    history.pushState({}, '', '#' + elementID);
   }
 
   for (var i = 0; i < buttons.length; i += 1) {
