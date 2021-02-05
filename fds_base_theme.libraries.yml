@@ -13,6 +13,7 @@ styles:
       css/components/spotbox.css: {}
       css/components/breadcrumb.css: {}
       css/components/gis-map.css: {}
+      css/components/banner.css: {}
       css/components/eu-cookie-compliance.css: {}
       css/components/form.css: {}
       css/components/meeting.css: {}
