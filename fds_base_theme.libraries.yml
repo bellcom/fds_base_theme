@@ -23,6 +23,7 @@ styles:
       css/utils/flexy-list.css: {}
       css/utils/grid.css: {}
       css/utils/element-wrapper-link.css: {}
+      css/admin-toolbar.css: {}
       'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css': { type: external }
 
 javascripts:
