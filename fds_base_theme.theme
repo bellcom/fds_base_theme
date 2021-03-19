@@ -94,7 +94,7 @@ function fds_base_theme_theme_suggestions_taxonomy_term_alter(
   $variables,
   $hook
 ) {
-  $suggestions[] = 'taxonomy_term__' . $variables['elements']['#taxonomy_term']->getVocabularyId() . '__' . $variables['elements']['#view_mode'];
+  $suggestions[] = 'taxonomy_term__' . $variables['elements']['#taxonomy_term']->bundle() . '__' . $variables['elements']['#view_mode'];
   $suggestions[] = 'taxonomy_term__' . $variables['elements']['#view_mode'];
 }
 
