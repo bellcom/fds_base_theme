@@ -38,6 +38,7 @@
   <button type="button" class="eu-cookie-withdraw-tab">{{ privacy_settings_tab_label }}</button>
 {% endif %}
 {% set classes = [
+  'cookie-container',
   'eu-cookie-compliance-banner',
   'eu-cookie-compliance-banner-info',
   ['eu-cookie-compliance-banner--', method|replace({'_': '-'})]|join,
