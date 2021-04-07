@@ -3,6 +3,7 @@ type: theme
 description: 'Provides a base with sensible defaults.'
 base theme: classy
 core: 8.x
+core_version_requirement: ^8 || ^9
 package: OS2web
 
 regions:
