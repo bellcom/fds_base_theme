@@ -1,4 +1,5 @@
 <?php
+use Drupal\Core\Form\FormStateInterface;
 
 function fds_base_theme_form_system_theme_settings_alter(
   &$form,
@@ -436,4 +437,65 @@ function fds_base_theme_form_system_theme_settings_alter(
       ],
     ],
   ];
+
+  $form['footer'] = [
+    '#type' => 'details',
+    '#title' => t('Footer logo and text'),
+    '#group' => 'fds_base_theme',
+  ];
+  $form['footer']['footer_use_default_logo'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Use the logo supplied by the theme'),
+    '#default_value' => theme_get_setting('footer_use_default_logo'),
+  ];
+  $form['footer']['logo_settings'] = [
+    '#type' => 'container',
+    '#states' => [
+      // Hide the logo settings when using the default logo.
+      'invisible' => [
+        'input[name="footer_use_default_logo"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+    $form['footer']['logo_settings']['footer_logo_path'] = [
+      '#type' => 'textfield',
+      '#title' => t('Path to custom logo'),
+      '#default_value' => theme_get_setting('footer_logo_path'),
+    ];
+    $form['footer']['logo_settings']['footer_logo_upload'] = [
+      '#type' => 'file',
+      '#title' => t('Upload logo image'),
+      '#maxlength' => 40,
+      '#description' => t("If you don't have direct file access to the server, use this field to upload your logo."),
+      '#element_validate' => array('fds_base_theme_footer_logo_validate'),
+    ];
+      // Additional information.
+    $form['footer']['footer_text'] = [
+      '#type' => 'textarea',
+      '#title' => t('Text in the footer (free text)'),
+      '#default_value' => theme_get_setting('footer_text'),
+    ];
+
+}
+/**
+ * Check and save the uploaded header background image
+ */
+function fds_base_theme_footer_logo_validate($element, FormStateInterface $form_state)  {
+  global $base_url;
+
+  $validators = array('file_validate_is_image' => array());
+  $file = file_save_upload('footer_logo_upload', $validators, "public://", NULL, FILE_EXISTS_REPLACE);
+  if (is_array($file)) {
+    $file=array_pop($file);
+
+    //change file's status from temporary to permanent and update file database
+    $file->status = FILE_STATUS_PERMANENT;
+    //file_save($file);
+
+
+     //set to form
+    $uri = $file->getFileUri();
+    $form_state->setValue('footer_logo_path', $uri);
+
+  }
 }
