@@ -13,6 +13,7 @@ styles:
       css/components/spotbox.css: {}
       css/components/breadcrumb.css: {}
       css/components/gis-map.css: {}
+      css/components/banner.css: {}
       css/components/eu-cookie-compliance.css: {}
       css/components/form.css: {}
       css/components/meeting.css: {}
@@ -23,6 +24,7 @@ styles:
       css/utils/flexy-list.css: {}
       css/utils/grid.css: {}
       css/utils/element-wrapper-link.css: {}
+      css/admin-toolbar.css: {}
       'https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css': { type: external }
 
 javascripts:
@@ -33,3 +35,4 @@ javascripts:
     js/print_page.js: {}
     js/micro-modal.js: {}
     js/slideshow.js: {}
+    js/accordion.js: {}

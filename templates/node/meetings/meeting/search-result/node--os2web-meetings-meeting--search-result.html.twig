@@ -8,6 +8,17 @@
 ]
 %}
 <div {{ attributes.addClass(classes) }}>
-  <h3>{{ label }}</h3>
-  {{ content.body }}
+  <h4>{{ label }}</h4>
+
+  <div>
+    {{ content }}
+  </div>
+
+  <br>
+
+  <div class="field--type-link text-align-right">
+    <a href="{{ url }}">
+      {{ 'Read more' | trans }}
+    </a>
+  </div>
 </div>
