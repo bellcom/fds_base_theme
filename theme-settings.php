@@ -527,7 +527,7 @@ function fds_base_theme_footer_logo_validate($element, FormStateInterface $form_
 
     //change file's status from temporary to permanent and update file database
     $file->status = FILE_STATUS_PERMANENT;
-    //file_save($file);
+    $file->save();
 
 
      //set to form
