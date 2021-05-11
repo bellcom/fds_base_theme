@@ -65,5 +65,9 @@ function _fds_base_theme_collect_theme_settings() {
   $settings['social']['github']['url'] = theme_get_setting('github_url');
   $settings['social']['github']['tooltip'] = theme_get_setting('github_tooltip');
 
+  $settings['footer']['logo_settings']['footer_logo_path'] = file_create_url(theme_get_setting('footer_logo_path'));
+  $settings['footer']['footer_use_default_logo'] = theme_get_setting('footer_use_default_logo');
+  $settings['footer']['footer_text'] = theme_get_setting('footer_text');
+
   return $settings;
 }
