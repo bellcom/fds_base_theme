@@ -9,14 +9,16 @@
       var accordionItem = document.querySelector(identifier);
 
       if (accordionItem) {
+        var listItem = accordionItem.closest('li');
         var content = accordionItem.closest('div');
-        var button = content.querySelector('.accordion-button');
+        var button = listItem.querySelector('.accordion-button');
 
+        debugger
         // Expand item.
         content.setAttribute('aria-expanded', 'true');
         content.setAttribute('aria-hidden', 'false');
 
-        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-expanded', 'true');
 
         // Scroll into view.
         setTimeout(function() {
