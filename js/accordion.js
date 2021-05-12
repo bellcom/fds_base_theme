@@ -3,17 +3,18 @@
   document.addEventListener("DOMContentLoaded", function() {
 
     var identifier = window.location.hash;
+// debugger;
 
     if (identifier) {
       var accordionItem = document.querySelector(identifier);
 
       if (accordionItem) {
-        var listItem = accordionItem.closest('li');
-        var button = listItem.querySelector('.accordion-button');
+        var content = accordionItem.closest('div');
+        var button = content.querySelector('.accordion-button');
 
         // Expand item.
-        listItem.setAttribute('aria-expanded', 'false');
-        listItem.setAttribute('aria-hidden', 'true');
+        content.setAttribute('aria-expanded', 'true');
+        content.setAttribute('aria-hidden', 'false');
 
         button.setAttribute('aria-expanded', 'false');
 
