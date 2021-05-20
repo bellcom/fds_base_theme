@@ -1,4 +1,4 @@
-{% set uniqueId = 'bp-accordion-' ~ random() %}
+{% set uniqueId = node.label | lower | replace({" ": "-", ".": ""}) | url_encode %}
 {%
   set classes = [
   node.bundle|clean_class,
