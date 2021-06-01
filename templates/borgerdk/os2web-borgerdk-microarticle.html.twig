@@ -17,7 +17,7 @@
 #}
 {% set entity = elements['#os2web_borgerdk_microarticle'] %}
 
-{% set uniqueId = 'microarticle-' ~ entity.id.value %}
+{% set uniqueId = entity.borgerdk_id.value %}
 <li>
   <button class="accordion-button js-accordion-add-link" aria-expanded="false" aria-controls="{{ uniqueId }}">
     {{ content.title }}
