@@ -16,12 +16,30 @@
  */
 #}
 {% set entity = elements['#os2web_borgerdk_microarticle'] %}
-
 {% set uniqueId = entity.borgerdk_id.value %}
-<li>
-  <button class="accordion-button js-accordion-add-link" aria-expanded="false" aria-controls="{{ uniqueId }}">
+{% set hasSelfserviceLink = false %}
+{% if _context['#selfservices'] | length > 0 %}
+  {% set hasSelfserviceLink = true %}
+{% endif %}
+
+{% if hasSelfserviceLink %}
+  <li class="has-selfservice-links">
+{% else %}
+  <li>
+{% endif %}
+  <button class="accordion-button js-accordion-add-link" aria-expanded="false" aria-controls="{{ uniqueId }}" id="label_{{ uniqueId }}">
     {{ content.title }}
   </button>
+
+  {% if hasSelfserviceLink %}
+    <div class="selfservice-links">
+      {% for selfservicelink in _context['#selfservices'] %}
+        <a href="{{ selfservicelink['url'] }}" class="button button-primary button--selfservice" target="_blank" aria-labelledby="label_{{ uniqueId }}">
+          {{ 'Start' | trans }}
+        </a>
+      {% endfor %}
+    </div>
+  {% endif %}
 
   <div id="{{ uniqueId }}" aria-hidden="true" class="accordion-content">
     {{ content.content }}
