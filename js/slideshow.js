@@ -49,11 +49,14 @@
 })();
 
 // Tiny Slider slideshow img.
-(function() {
+(function($, Drupal, drupalSettings) {
   var selector = '.field--name-field-os2web-slideshow-image .field__items';
 
   if (document.querySelector(selector) !== null) {
-
+    var items = 2;
+    if  (typeof drupalSettings.os2web_slideshow_paragraph.items !== 'undefined') {
+      items = drupalSettings.os2web_slideshow_paragraph.items;
+    }
     // Run tiny slider.
     tns({
       container: selector,
@@ -64,9 +67,9 @@
       rewind: true,
       responsive: {
         576: {
-          items: 2,
+          items: items,
         },
       },
     });
   }
-})();
+})(jQuery, Drupal, drupalSettings);
