@@ -24,8 +24,8 @@
       <li{{ item.attributes.addClass(classes) }}>
         {% if menu_level != 0 %}
           <a href="{{ item.url }}" class="sub-link-a">
-            <div class="sub-link-sub"> >
-            </div><div class="sub-link-div">{{ item.title }}</div>
+            <div class="sub-link-sub"></div>
+            <div class="sub-link-div">{{ item.title }}</div>
           </a>
         {% else %}
           {{ link(item.title, item.url) }}
