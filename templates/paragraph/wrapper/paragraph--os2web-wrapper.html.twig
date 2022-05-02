@@ -4,9 +4,9 @@
   'paragraph--type--' ~ paragraph.bundle|clean_class,
   'background-color--' ~ background_color|clean_class,
   view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
-  not paragraph.isPublished() ? 'paragraph--unpublished'
+  not paragraph.isPublished() ? 'paragraph--unpublished',
+  custom_classes ? custom_classes
 ] %}
-
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }}>
     {% block content %}

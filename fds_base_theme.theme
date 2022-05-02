@@ -222,6 +222,9 @@ function fds_base_theme_preprocess_paragraph__os2web_wrapper(&$variables) {
   if ($paragraph->field_os2web_bg_color && $paragraph->field_os2web_bg_color->value) {
     $variables['background_color'] = $paragraph->field_os2web_bg_color->value;
   }
+  if ($paragraph->field_os2web_custom_classes && !$paragraph->field_os2web_custom_classes->isEmpty()) {
+    $variables['custom_classes'] = $paragraph->field_os2web_custom_classes->value;
+  }
 }
 
 /*
