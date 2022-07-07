@@ -1,4 +1,11 @@
+{% set classes = [
+  'paragraph',
+  'paragraph--type--' ~ paragraph.bundle|clean_class,
+  view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+  paragraph.isPublished() ? null : 'paragraph--unpublished'
+] %}
 {% block paragraph %}
+<div{{ attributes.addClass(classes) }}>
   {% block content %}
     <button class="accordion-button js-accordion-add-link" aria-expanded="false" aria-controls="paragraph-{{ paragraph.id() }}">
       {# Begin - heading #}
@@ -11,4 +18,5 @@
       {# End - heading #}
     </div>
   {% endblock %}
+</div>
 {% endblock paragraph %}
