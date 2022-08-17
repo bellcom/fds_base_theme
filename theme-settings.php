@@ -1,4 +1,6 @@
 <?php
+
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 function fds_base_theme_form_system_theme_settings_alter(
@@ -521,7 +523,7 @@ function fds_base_theme_footer_logo_validate($element, FormStateInterface $form_
   global $base_url;
 
   $validators = array('file_validate_is_image' => array());
-  $file = file_save_upload('footer_logo_upload', $validators, "public://", NULL, FILE_EXISTS_REPLACE);
+  $file = file_save_upload('footer_logo_upload', $validators, "public://", NULL, FileSystemInterface::EXISTS_REPLACE);
   if (is_array($file)) {
     $file=array_pop($file);
 
