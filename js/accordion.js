@@ -13,7 +13,7 @@
         var content = accordionItem.closest('div');
         var button = listItem.querySelector('.accordion-button');
 
-        debugger
+        // debugger
         // Expand item.
         content.setAttribute('aria-expanded', 'true');
         content.setAttribute('aria-hidden', 'false');
