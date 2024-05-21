@@ -4,6 +4,7 @@ include(dirname(__FILE__) . '/include/settings.inc');
 use Drupal\Component\Utility\Html;
 use Drupal\image\Entity\ImageStyle;
 
+
 /**
  * Preprocess variables for html templates.
  * @param $variables
@@ -206,7 +207,11 @@ function fds_base_theme_preprocess_paragraph__os2web_banner_paragraph(&$variable
     if (!empty($image_style)) {
       $image_url = $image_style->buildUrl($image_uri);
 
-      $variables['background_image'] = file_url_transform_relative($image_url);
+      // Use the file_url_generator service to transform the URL to a relative URL.
+      $file_url_generator = \Drupal::service('file_url_generator');
+      $relative_url = $file_url_generator->transformRelative($image_url);
+
+      $variables['background_image'] = $relative_url;
     }
   }
 }
